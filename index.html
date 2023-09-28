@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="./css/homepage.css">
+    <title>Homepage</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="nav">
+        
+                <ul>
+                    <img class="logo" src="images/LGM.png" alt=""> </a>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="login_admin.php">Admin Login</a>
+                    </li>
+    
+                    <li class="dropdown" onclick="toggleDisplay('2')">
+                        <a href="tile.php" class="dropbtn">Student &nbsp
+                            <span class="fa fa-angle-down"></span>
+                        </a>
+                        <div class="dropdown-content" id="2">
+                            <a href="./login_student.php">Get Results</a>
+                            <a href="admissions.php">Admissions</a>
+                            <a href="scholarship.php">Scholarship</a>
+                            <a href="examination.php">Examination</a>
+                            <a href="query.php">Query</a>
+                        </div>
+                    </li>
+    
+                    <li class="dropdown" onclick="toggleDisplay('1')">
+                        <a href="#" class="dropbtn">About &nbsp
+                            <span class="fa fa-angle-down"></span>
+                        </a>
+                        <div class="dropdown-content2" id="1">
+                            <a href="" data-section-id="university">University</a>
+                            <a href="" data-section-id="admissions">Admissions</a>
+                            <a href="" data-section-id="fees">Fees</a>
+                            <a href="" data-section-id="library">Library</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    
+        
+    
+        <div class="title">
+            <span class="heading">Students Result Management System</span>
+        </div>
+    
+        <div class="slider-container">
+            <div class="slider">
+                <img src="images/home4.jpg" class="slider-image" alt="Image 1">
+                <img src="images/home5.jpg" class="slider-image" alt="Image 2">
+                <img src="images/home2.jpg" class="slider-image" alt="Image 3">
+                <img src="images/home6.jpg" class="slider-image" alt="Image 4">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="main">
+            <span id="university">University of Mumbai</span>
+            <div >
+                <p>The University of Mumbai (known earlier as University of Bombay) is one of the oldest and premier
+                    universities in India. It was established in 1857 consequent upon "Wood's Education Dispatch," and it is one
+                    among the first three universities in India. As a sequel to the change in the name of the city from Bombay
+                    to Mumbai, the name of the University has been changed from "University of Bombay" to "University of
+                    Mumbai," vide notification issued by the Government of Maharashtra and published in the Government Gazette
+                    dated 4th September 1996. The University was accorded a 5-star status in 2001 and an 'A' grade status in
+                    April 2012 by the National Assessment and Accreditation Council (NAAC). It has been granted University with
+                    Potential for Excellence (UPE) status by UGC and PURSE Scheme by DST.
+                </p>    
+    
+            </div>
+            
+            <div class="info">
+                <div id="admissions">
+                    <span>Admissions</span>
+                    <hr>
+                    <p>The University of Mumbai offers a wide range of undergraduate, postgraduate, and doctoral programs
+                        across various disciplines. Our admission process is designed to ensure a fair and transparent
+                        selection of students. For detailed information about admission procedures, eligibility criteria,
+                        and important dates, please visit our Admissions page.</p>
+                </div>
+                
+                <div id="fees">
+                    <span>Fees</span>
+                    <hr>
+                    <p>At the University of Mumbai, we are committed to providing quality education at an affordable cost.
+                        Our fee structure is designed to cater to the diverse needs of students. To know more about the fees
+                        for different courses and programs, please visit our Fees page.</p>
+                </div>
+                <div>
+                    <span id="library">Library</span>
+                    <hr>
+                    <p>Our university library is a treasure trove of knowledge. With an extensive collection of books,
+                        journals, research papers, and digital resources, it serves as a hub for academic and intellectual
+                        growth. Whether you are a student, faculty member, or researcher, you will find valuable resources
+                        and a conducive environment for learning at our library. Explore our Library page for more details.
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer">
+            <div class="footer--contact">
+                <span class="cnt">Contact Us</span>
+                <p>abc123@gmail.com</p>
+                <p>+91-1234567890</p>
+            </div>
+            <div class="footer--info">
+                <span>Important Links</span>
+                <a href="index.html">Home</a>
+                <a href="login_admin.php">Admin Login</a>
+                <a href="login_student.php">Results</a>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("slider-image");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 2000); 
+        }
+
+
+       
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            window.scrollTo({
+                top: section.offsetTop,
+                behavior: 'smooth' 
+            });
+        }
+    }
+
+    
+    const dropdownItems = document.querySelectorAll('.dropdown-content2 a');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            const sectionId = this.getAttribute('data-section-id');
+            scrollToSection(sectionId);
+        });
+    });
+    </script>
+
+</body>
+
+</html>
